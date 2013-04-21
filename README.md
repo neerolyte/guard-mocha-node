@@ -1,11 +1,11 @@
 Guard::MochaNode
 ==================
 
+[![Build Status](https://travis-ci.org/neerolyte/guard-mocha-node.png)](https://travis-ci.org/neerolyte/guard-mocha-node)
+
 This is a fork of the Great work from [Dave Nolan](https://github.com/textgoeshere)
 with his gem [Guard::JasmineNode](https://github.com/guard/guard-jasmine-node).
-Only modified to work with mocha
-
-... and then I stole it from [[https://github.com/kanzeon/guard-mocha-node|kanzeon]], and I'd welcome them taking it back at any point :)
+Only modified to work with mocha ... and then I stole it from [kanzeon](https://github.com/kanzeon/guard-mocha-node), and I'd welcome them taking it back at any point :)
 
 MochaNode guard automatically & intelligently executes mocha node specs when files are modified.
 
