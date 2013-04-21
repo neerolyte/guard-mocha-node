@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Guard::MochaNodeVersion::VERSION
   s.authors     = ["dave@kapoq.com", "David Schoen <dave@lyte.id.au>"]
   s.email       = ["dave@kapoq.com", "dave@lyte.id.au"]
-  s.homepage    = "https://github.com/kanzeon/guard-mocha-node"
+  s.homepage    = "https://github.com/neerolyte/guard-mocha-node"
   s.summary     = %q{Guard::MochaNode automatically runs your Mocha Node specs when files are modified}
   s.description = %q{}
 
