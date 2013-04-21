@@ -15,7 +15,7 @@ Requirements
 ------------
 
 * [Node](http://nodejs.org/)
-* Mocha
+* [Mocha](http://visionmedia.github.io/mocha/)
 * [Ruby](http://ruby-lang.org) and rubygems
 
 Install
@@ -115,15 +115,6 @@ more information about the Guardfile DSL.
 
 It's powerful stuff.
 
-
-TODO
-----
-
-* write a JsonFormatter for jasmine-node so we have finer-grained
-  control over rendering output
-* write an RSpec-style progress formatter (aka lots of green dots)
-* patch Guard to locate CamelCased modules correctly
-
 Testing
 -------
 
@@ -133,3 +124,4 @@ Author
 ------
 
 [Roberto Huelga Díaz](https://github.com/kanzeon)
+[David Schoen](https://github.com/neerolyte)
