@@ -5,9 +5,9 @@ This is a fork of the Great work from [Dave Nolan](https://github.com/textgoeshe
 with his gem [Guard::JasmineNode](https://github.com/guard/guard-jasmine-node).
 Only modified to work with mocha
 
+... and then I stole it from [[https://github.com/kanzeon/guard-mocha-node|kanzeon]], and I'd welcome them taking it back at any point :)
 
 MochaNode guard automatically & intelligently executes mocha node specs when files are modified.
-
 
 * Tested against Node 0.8.14, mocha 1.6.0
 

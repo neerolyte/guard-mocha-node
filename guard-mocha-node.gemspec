@@ -5,8 +5,8 @@ require "guard/mocha_node/version"
 Gem::Specification.new do |s|
   s.name        = "guard-mocha-node"
   s.version     = Guard::MochaNodeVersion::VERSION
-  s.authors     = ["dave@kapoq.com"]
-  s.email       = ["dave@kapoq.com"]
+  s.authors     = ["dave@kapoq.com", "David Schoen <dave@lyte.id.au>"]
+  s.email       = ["dave@kapoq.com", "dave@lyte.id.au"]
   s.homepage    = "https://github.com/kanzeon/guard-mocha-node"
   s.summary     = %q{Guard::MochaNode automatically runs your Mocha Node specs when files are modified}
   s.description = %q{}
