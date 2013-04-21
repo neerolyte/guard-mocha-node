@@ -93,7 +93,7 @@ Globals to ignore when performing global leak detection
 
 * `:mocha_bin`
 
-Specify the path to the jasmine-node binary that will execute your specs.
+Specify the path to the mocha-node binary that will execute your specs.
 
 The default `:mocha_bin` in the Guardfile assumes:
 
@@ -104,7 +104,7 @@ The default `:mocha_bin` in the Guardfile assumes:
 If you delete the option completely from the Guardfile, it assumes the
 mocha binary is already in your `$PATH`.
 
-So if you have installed jasmine-node globally using e.g. `npm install
+So if you have installed mocha-node globally using e.g. `npm install
 -g mocha`, remove the `:mocha_bin` option from the Guardfile.
 
 Guardfile
