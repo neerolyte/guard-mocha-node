@@ -120,8 +120,8 @@ Testing
 
     $ rake
 
-Author
+Authors
 ------
 
-[Roberto Huelga Díaz](https://github.com/kanzeon)
-[David Schoen](https://github.com/neerolyte)
+ * [Roberto Huelga Díaz](https://github.com/kanzeon)
+ * [David Schoen](https://github.com/neerolyte)
