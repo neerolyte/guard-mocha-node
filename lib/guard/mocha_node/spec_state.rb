@@ -25,7 +25,7 @@ module Guard
           line = @stdout.gets
           print line if !line.strip.empty?
         end
-        @stderr.lines { |line| print line }
+        @stderr.each { |line| print line }
         @exitstatus = @io[THREAD].value rescue ERROR_CODE
         close_io
         update_passed_and_fixed
