@@ -19,32 +19,20 @@ describe Guard::MochaNode::SpecState do
   end
 
   describe "#update" do
-    let(:io) { [
-                double("stdin",  :close => true),
-                double("stdout", :close => true, :lines => [], :eof? => true),
-                double("stderr", :close => true, :each => []),
-                double("thread", :value => 0)
-               ] }
     let(:some_paths)   { %w(some paths) }
     let(:some_options) { double("some options") }
 
     before do
-      runner.stub(:run => io)
+      runner.stub(:run => true)
     end
 
     it "runs the runner with the paths and options" do
-      runner.should_receive(:run).with(some_paths, some_options).and_return(io)
+      runner.should_receive(:run).with(some_paths, some_options).and_return(true)
       state.update(some_paths, some_options)
-    end
-
-    it "closes stdin, stdout, and stderr of the subprocess" do
-      io[0..2].each { |i| i.should_receive(:close) }
-      state.update
     end
 
     context "when the runner process exit value is zero" do
       before do
-        io[3].stub(:value => 0)
         state.update
       end
 
@@ -94,7 +82,7 @@ describe Guard::MochaNode::SpecState do
 
     context "when the runner process exit value is not zero" do
       before do
-        io[3].stub(:value => 1)
+        runner.stub(:run => false)
         state.update(some_paths, some_options)
       end
 

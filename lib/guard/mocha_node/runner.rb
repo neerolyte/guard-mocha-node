@@ -1,4 +1,3 @@
-require 'open3'
 require 'guard/ui'
 
 module Guard
@@ -18,13 +17,13 @@ module Guard
 
       def self.print_message
         message = @options[:message]
-	is_all_specs = @paths.sort == @options[:paths_for_all_specs].sort
+        is_all_specs = @paths.sort == @options[:paths_for_all_specs].sort
         message ||= is_all_specs ? "Running all specs" : "Running: #{@paths.join(' ')}"
         ::Guard::UI.info(message, :reset => true)
       end
 
       def self.execute_mocha_node_command
-        ::Open3.popen3(*mocha_node_command)
+        Kernel.system(*mocha_node_command)
       end
 
       def self.mocha_node_command
@@ -36,34 +35,34 @@ module Guard
 
       def self.command_line_options
         options = []
-	compilers = []
+        compilers = []
 
         if @options[:coffeescript]
           compilers << "coffee:coffee-script"
         end
 
-	if @options[:livescript]
+        if @options[:livescript]
           compilers << "ls:LiveScript"
         end
 
-	if not compilers.empty?
-	  options << "--compilers"
-	  options << compilers.join(",")
-	end
+        if not compilers.empty?
+          options << "--compilers"
+          options << compilers.join(",")
+        end
 
         if @options[:recursive]
           options << "--recursive"
         end
 
-	if @options[:require]
-	  r = @options[:require]
-	  r = [r] if not r.instance_of? Array
+        if @options[:require]
+          r = @options[:require]
+          r = [r] if not r.instance_of? Array
 
-	  r.each { |e|
-	    options << "-r"
-	    options << e
-	  }
-	end
+          r.each { |e|
+            options << "-r"
+            options << e
+          }
+        end
 
         if @options[:color]
           options << "-c"
@@ -81,8 +80,8 @@ module Guard
           options << @options[:reporter]
         end
 
-	# puts "---- printing the options"
-	# puts options
+        # puts "---- printing the options"
+        # puts options
         options
       end
     end

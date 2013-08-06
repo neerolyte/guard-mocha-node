@@ -1,14 +1,6 @@
 module Guard
   class MochaNode
     class SpecState
-      STDIN  = 0
-      STDOUT = 1
-      STDERR = 2
-      THREAD = 3
-
-      SUCCESS_CODE = 0
-      ERROR_CODE   = 1
-
       attr_accessor :failing_paths
 
       def initialize
@@ -17,17 +9,7 @@ module Guard
 
       def update(run_paths = [], options = {})
         @run_paths = run_paths
-        @io = Runner.run(@run_paths, options)
-        @stdout     = @io[STDOUT]
-        @stderr     = @io[STDERR]
-        # stream stdout immediately
-        until @stdout.eof?
-          line = @stdout.gets
-          print line if !line.strip.empty?
-        end
-        @stderr.each { |line| print line }
-        @exitstatus = @io[THREAD].value rescue ERROR_CODE
-        close_io
+        @exitok = Runner.run(@run_paths, options)
         update_passed_and_fixed
         update_failing_paths
         passing?
@@ -49,13 +31,9 @@ module Guard
 
       private
 
-      def close_io
-        @io[STDIN..STDERR].each { |s| s.close }
-      end
-
       def update_passed_and_fixed
         previously_failed = !passing?
-        @passed = @exitstatus == SUCCESS_CODE
+        @passed = @exitok
         @fixed  = @passed && previously_failed
       end
 
